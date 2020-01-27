@@ -9,10 +9,13 @@ const API_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 
 @Component({
+  
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
+
 })
+
 export class AppComponent implements OnInit {
   title = 'Angular RxJs YouTube Searcher';
   searchForm: FormGroup;
@@ -36,5 +39,7 @@ export class AppComponent implements OnInit {
        switchMap(searchTerm => this.http.get<any>(`${API_URL}?q=${searchTerm}&key=${API_KEY}&part=snippet`)),
        map(response => response.items)
      );
+
   }
+
 }
